@@ -1,5 +1,7 @@
 package com.example.discordbot;
 
+import com.example.discordbot.PingListener.PingListener;
+
 import org.javacord.api.DiscordApi;
 import org.javacord.api.DiscordApiBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,9 @@ import org.springframework.core.env.Environment;
 public class DiscordbotApplication {
 	@Autowired
 	private Environment env;
+	
+	@Autowired
+	private PingListener pingListener;
 	public static void main(String[] args) {
 		SpringApplication.run(DiscordbotApplication.class, args);
 	}
@@ -25,6 +30,8 @@ public class DiscordbotApplication {
 				.setAllNonPrivilegedIntents()
 				.login()
 				.join();
+		
+		api.addMessageCreateListener(pingListener);
 		return api;
 	}
 }
