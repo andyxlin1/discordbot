@@ -1,4 +1,4 @@
-package com.example.discordbot.PingListener;
+package com.example.discordbot.listeners;
 
 import org.javacord.api.listener.message.MessageCreateListener;
 

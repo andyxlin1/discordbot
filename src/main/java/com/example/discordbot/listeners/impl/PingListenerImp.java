@@ -1,5 +1,6 @@
-package com.example.discordbot.PingListener;
+package com.example.discordbot.listeners.impl;
 
+import com.example.discordbot.listeners.PingListener;
 import org.javacord.api.event.message.MessageCreateEvent;
 import org.springframework.stereotype.Component;
 

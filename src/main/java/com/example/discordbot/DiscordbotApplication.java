@@ -1,6 +1,7 @@
 package com.example.discordbot;
 
-import com.example.discordbot.PingListener.PingListener;
+import com.example.discordbot.listeners.PingListener;
+import com.example.discordbot.listeners.RateListener;
 
 import org.javacord.api.DiscordApi;
 import org.javacord.api.DiscordApiBuilder;
@@ -18,6 +19,9 @@ public class DiscordbotApplication {
 	
 	@Autowired
 	private PingListener pingListener;
+
+	@Autowired
+	private RateListener rateListener;
 	public static void main(String[] args) {
 		SpringApplication.run(DiscordbotApplication.class, args);
 	}
@@ -32,6 +36,7 @@ public class DiscordbotApplication {
 				.join();
 		
 		api.addMessageCreateListener(pingListener);
+		api.addMessageCreateListener(rateListener);
 		return api;
 	}
 }
